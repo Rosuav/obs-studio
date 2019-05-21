@@ -359,6 +359,14 @@ struct OBSStudioAPI : obs_frontend_callbacks {
 		return App()->GlobalConfig();
 	}
 
+	void obs_frontend_open_projector(/*int monitor, const char *name*/) override
+	{
+		//TODO: Allow selection of a monitor (which will OpenPreviewProjector
+		//instead of Window), and customization of the name (if omitted, use
+		//the default, which AIUI goes through the localization files).
+		QMetaObject::invokeMethod(main, "OpenPreviewWindow");
+	}
+
 	void obs_frontend_save(void) override
 	{
 		main->SaveProject();

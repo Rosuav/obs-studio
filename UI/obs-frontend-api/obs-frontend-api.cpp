@@ -318,6 +318,12 @@ config_t *obs_frontend_get_global_config(void)
 		: nullptr;
 }
 
+void obs_frontend_open_projector(/*int monitor, const char *name*/)
+{
+	if (callbacks_valid())
+		c->obs_frontend_open_projector(/*monitor, name*/);
+}
+
 void obs_frontend_save(void)
 {
 	if (callbacks_valid())
